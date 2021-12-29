@@ -9,8 +9,7 @@
 </head>
 
 <body>
-
-    <form action="{{ route('users.storeUser') }}" method="post">
+    <form action="{{ route('user.store') }}" method="post">
         @csrf
         <p class="text-center">
         <div class="">
@@ -33,7 +32,7 @@
         <p class="text-center">
         <div class="">
             <input type="submit" value="Cadastrar usuário">
-            <a href="/usuarios">Voltar</a>
+            <a href="{{ route('user.index') }}">Voltar</a>
 
         </div>
         </p>
