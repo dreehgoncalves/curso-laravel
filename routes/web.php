@@ -19,12 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/lista', [UserController::class, 'lista']);
-
 Route::get('/usuarios', [TestController::class, 'listAllUsers'])->name(
     'users.listAll'
 );
