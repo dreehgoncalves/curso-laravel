@@ -22,19 +22,18 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="/usuarios/{{ $user->id }}">Ver Usuário</a>
-                    <a href="/usuarios/editar/{{ $user->id }}">Editar Usuário</a>
-                    <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="post">
+                    <a href="{{ route('user.show', ['user' => $user->id]) }}">Ver Usuário</a>
+                    <a href="{{ route('user.edit', ['user' => $user->id]) }}">Editar Usuário</a>
+                    <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <input type="hidden" name="user" value="{{ $user->id }}">
                         <input type="submit" value="Remover">
                     </form>
                 </td>
             </tr>
         @endforeach
     </table>
-    <a href="/usuarios/novo">Cadastrar Usuário</a>
+    <a href="{{ route('user.create') }}">Cadastrar Usuário</a>
 
 </body>
 

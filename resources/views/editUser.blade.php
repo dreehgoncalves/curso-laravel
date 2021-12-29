@@ -10,7 +10,7 @@
 
 <body>
 
-    <form action="{{ route('users.editUser', ['user' => $user->id]) }}" method="post">
+    <form action="{{ route('user.update', ['user' => $user->id]) }}" method="post">
         @csrf
         @method('PUT')
         <p class="text-center">
@@ -36,7 +36,7 @@
                 <input type="submit" value="Editar usuário">
             </div>
         </p>
-        <a href="/usuarios/{{$user->id}}">Voltar</a>
+        <a href="{{ route('user.index') }}">Voltar</a>
 
     </form>
 </body>
