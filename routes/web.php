@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Form\TesteController;
+use App\Http\Controllers\PostController;
+// use App\Http\Controllers\Form\TesteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,10 @@ use App\Http\Controllers\Form\TesteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PostController::class, 'showForm'])->name('showForm');
 
-Route::resource('usuarios', TesteController::class)
-    ->names('user')
-    ->parameters(['usuarios' => 'user']);
+Route::post('/debug', [PostController::class, 'debug'])->name('debug');
+
+// Route::resource('usuarios', TesteController::class)
+//     ->names('user')
+//     ->parameters(['usuarios' => 'user']);
