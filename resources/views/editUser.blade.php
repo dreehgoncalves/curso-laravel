@@ -36,7 +36,8 @@
                 <input type="submit" value="Editar usuário">
             </div>
         </p>
-        <a href="{{ route('user.index') }}">Voltar</a>
+        <a href="{{ route('user.show', ['user' => $user->id]) }}">Perfil do usuário</a>
+        <a href="{{ route('user.index') }}">Página inicial</a>
 
     </form>
 </body>

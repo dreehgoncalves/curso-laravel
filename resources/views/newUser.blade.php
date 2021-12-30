@@ -32,7 +32,7 @@
         <p class="text-center">
         <div class="">
             <input type="submit" value="Cadastrar usuário">
-            <a href="{{ route('user.index') }}">Voltar</a>
+            <a href="{{ route('user.index') }}">Pagina Inicial</a>
 
         </div>
         </p>

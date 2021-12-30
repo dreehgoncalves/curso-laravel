@@ -18,14 +18,14 @@
     </div>
     <div>
         <a href="{{ route('user.edit', ['user' => $user->id]) }}">Editar Usuário</a>
+        <p>
         <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="post">
             @csrf
             @method('DELETE')
-            <input type="hidden" name="user" value="{{ $user->id }}">
-            <input type="submit" value="Remover">
+            <input type="button" value="Remover">
         </form>
-
-        <a href="{{ route('user.index') }}">Voltar</a>
+        </p>
+        <a href="{{ route('user.index') }}">Página Inicial</a>
     </div>
 </body>
 
