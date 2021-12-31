@@ -17,17 +17,21 @@ class Post extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'title',
-        'subtitle',
-        'author',
-        'content',
-    ];
+    protected $fillable = ['title', 'subtitle', 'author', 'content'];
 
-    public function setTitleAttribute($value){
-
+    public function setTitleAttribute($value)
+    {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'author', 'id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'posts_categories', 'post', 'category');
+    }
 }
