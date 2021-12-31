@@ -46,7 +46,15 @@ class AddressController extends Controller
      */
     public function show(Address $address)
     {
-        //
+        if ($address) {
+            echo "Rua: {$address->street}, {$address->number}, {$address->city}/{$address->state}";
+        }
+
+        $user = $address->user()->first();
+
+        if ($user) {
+            echo "<p>Nome: {$user->name} Email: {$user->email}</p>";
+        }
     }
 
     /**

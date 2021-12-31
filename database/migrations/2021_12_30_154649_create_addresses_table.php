@@ -21,6 +21,9 @@ class CreateAddressesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->timestamps();
+
+            $table->foreign('user')->references('id')->on('users')->onDelete('CASCADE');
+
         });
     }
 

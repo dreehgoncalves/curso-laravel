@@ -46,7 +46,7 @@ class TesteController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.create');
     }
 
     /**
