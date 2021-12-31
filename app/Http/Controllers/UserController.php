@@ -46,25 +46,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('id', $id)->first();
-
-        $address = $user->address()->first();
-
-        $posts = $user->posts()->get();
-
-        if ($user) {
-            echo "<p>Nome: {$user->name} Email: {$user->email}</p>";
-        }
-
-        if ($address) {
-            echo "<p>Endereço: {$address->street}, {$address->number}, {$address->city}/{$address->state}</p>";
-        }
-
-        if ($posts) {
-            foreach ($posts as $post) {
-                echo "<p>{$post->id}, {$post->title}, {$post->content}</p>";
-            }
-        }
+        //
     }
 
     /**
