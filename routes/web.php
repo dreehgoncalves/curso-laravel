@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +13,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::resource('usuarios', UserController::class)
-    ->names('user')
-    ->parameters(['usuarios' => 'user']);
+Route::get('/', function () {
+    return view('welcome');
+});
