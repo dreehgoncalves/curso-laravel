@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -11,9 +12,41 @@ class AuthController extends Controller
         if (Auth::check() === true) {
             return view('admin.dashboard');
         }
+        return redirect()->route('admin.login');
     }
 
-    public function showLoginForm(){
+    public function showLoginForm()
+    {
         return view('admin.formLogin');
+    }
+
+    public function login(Request $request)
+    {
+        if(!filter_var($request->email, FILTER_VALIDATE_EMAIL)){
+            return redirect()
+            ->back()
+            ->withInput()
+            ->withErrors(['O email informado não é válido']);
+
+        }
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('admin');
+        }
+        return redirect()
+            ->back()
+            ->withInput()
+            ->withErrors(['Os dados estão incorretos']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('admin');
     }
 }

@@ -13,12 +13,18 @@
 </head>
 
 <body>
-    <form class="form-signin" method="post" action="">
+    <form class="form-signin" method="post" action="{{ route('admin.login.do')}}">
         @csrf
         <img src="https://www.upinside.com.br/themes/upinside_new/_img/logo.png" alt="">
-
+        @if($errors->all())
+        @foreach($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">
+            {{ $error }}
+         </div>
+        @endforeach
+        @endif
         <label for="email" class="sr-only">Endereço de email</label>
-        <input type="email" name="email" id="email" class="form-control" placeholder="Seu email" required>
+        <input type="text" name="email" id="email" class="form-control" value="a@a.com" placeholder="Seu email" required>
 
         <label for="password" class="sr-only">Senha</label>
         <input type="password" name="password" id="password" class="form-control" placeholder="Senha" required>
